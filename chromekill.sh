@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#	chromekill.sh
+#	This script was written to assist in pushing out the Chrome Enterprise browser and Endpoint Verification extension.
+
+
 #Identify the chrome pid if chrome is running. Clean up unwanted lines from grep.
 processes=$(ps -ef | grep "chrome" | grep -v "grep" | grep -v "awk" | grep -v "chromekill" | awk '{print $2}')
 
@@ -18,5 +22,6 @@ else
 	#Report Chrome restarted
 	/usr/bin/printf "<result>TRUE</result>\n"
 	sleep 2
+	#Re-Open chrome.
 	open /Applications/Google\ Chrome.app
 fi 
